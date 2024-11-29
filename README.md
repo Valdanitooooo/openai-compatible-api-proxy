@@ -83,7 +83,7 @@ curl http://localhost:9999/v1/chat/completions \
 API docs: https://platform.openai.com/docs/api-reference/embeddings/create
 
 ```
-curl https://api.openai.com/v1/embeddings \
+curl http://localhost:9999/v1/embeddings \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
