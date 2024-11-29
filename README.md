@@ -53,7 +53,7 @@ API docs: https://platform.openai.com/docs/guides/vision
 ```
 curl http://localhost:9999/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H "Authorization: Bearer xxx" \
   -d '{
     "model": "gpt-4o-mini",
     "messages": [
@@ -84,7 +84,7 @@ API docs: https://platform.openai.com/docs/api-reference/embeddings/create
 
 ```
 curl http://localhost:9999/v1/embeddings \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H "Authorization: Bearer xxx" \
   -H "Content-Type: application/json" \
   -d '{
     "input": "The food was delicious and the waiter...",
