@@ -1,0 +1,17 @@
+name: "model_api_proxy"
+
+services:
+
+  openresty:
+    env_file:
+      - path: .env
+        required: true
+    image: openresty/openresty:1.25.3.2-bullseye-fat
+    ports:
+      - '${IP:-0.0.0.0}:9999:80'
+    volumes:
+      - "./nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf"
+    logging:
+      options:
+        max-size: ${NGINX_WEB_LOG_MAX_SIZE:-4m}
+        max-file: ${NGINX_WEB_LOG_MAX_FILE:-10}
