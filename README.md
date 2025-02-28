@@ -92,3 +92,15 @@ curl http://localhost:9999/v1/embeddings \
     "encoding_format": "float"
   }'
 ```
+
+#### Authentication
+
+Use nginx_auth.conf configuration file
+
+API docs: https://platform.openai.com/docs/api-reference/authentication
+
+```
+curl http://localhost:9999/v1/models \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+```
+
