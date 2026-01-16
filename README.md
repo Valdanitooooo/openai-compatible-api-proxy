@@ -1,3 +1,5 @@
+[English](README.md) | [中文简体](README.zh-CN.md)
+
 # Openai compatible API proxy
 
 ## Introduce
@@ -11,9 +13,9 @@ You have deployed the local model and provided an OpenAI compatible RESTful API,
 
 ## Usage
 
-### 1. Provide necessary environment variables
+### 1. Modify configuration file
 
-Create an `.env` file and configure it like the `.env_example` file
+Modify `nginx.conf` according to the actual situation.
 
 ### 2. Run
 
@@ -103,4 +105,20 @@ API docs: https://platform.openai.com/docs/api-reference/authentication
 curl http://localhost:9999/v1/models \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
 ```
+
+### 4. Update Nginx config in production (hot reload)
+
+When modifying Nginx/OpenResty configuration in a running production environment, you **do not need to restart the container or interrupt ongoing requests**.
+
+After updating the config file, simply run:
+
+```
+docker compose exec openresty nginx -s reload
+```
+
+This performs a graceful reload:
+- Existing API requests continue normally.
+- New requests use the updated configuration.
+- No service downtime is introduced.
+
 
